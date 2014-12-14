@@ -19,6 +19,29 @@ class Module
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
+
+        date_default_timezone_set('America/Caracas');  //wyanez
+
+        //Agregado por wyanez - Para traducir mensajes de error a español
+        $serviceManager = $e->getApplication()->getServiceManager();
+        $translator = $serviceManager->get('translator');  //Nuevo en ZF2 2.3
+        
+        $translator->addTranslationFile(
+            'phpArray',
+            'vendor/zendframework/zendframework/resources/languages/es/Zend_Validate.php',
+            'default',
+            'es_ES'
+        );
+        
+        $translator->addTranslationFile(
+            'phpArray',
+            'resources/languages/es/ZendValidateCustomMessages.php',
+            'default',
+            'es_ES'
+        );
+        
+        \Zend\Validator\AbstractValidator::setDefaultTranslator($translator);
+ 
     }
 
     public function getConfig()

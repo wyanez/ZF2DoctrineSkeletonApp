@@ -20,7 +20,9 @@
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": "2.3.*",
-        "wyanez/zf2-doctrine-base": "dev-master"
+        "wyanez/zf2-doctrine-base": "dev-master",
+        "doctrine/doctrine-module": "dev-master",
+        "doctrine/doctrine-orm-module": "dev-master"
     },
     "require-dev": {
         "zendframework/zftool": "dev-master",

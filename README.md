@@ -1,49 +1,31 @@
-ZendSkeletonApplication
-=======================
+ZF2DoctrineSkeletonApplication
+===============================
 
 Introduction
 ------------
 This is a simple, skeleton application using the ZF2 MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
+systems and Doctrine2 ORM Layer. This application is meant to be used as a starting
+place for those looking to get their feet wet with ZF2 and Doctrine2 ORM Layer.
+Contains base classes: BaseDoctrineController, BaseDoctrineForm, BaseDoctrineModel and BaseDoctrineEntity and thus facilitate the development of your application.
 
 Installation
 ------------
 
-Using Composer (recommended)
-----------------------------
-The recommended way to get a working copy of this project is to clone the repository
-and use `composer` to install dependencies using the `create-project` command:
+Simply clone this project and run 
+```sh
+$ php composer.phar install
+```
 
-    curl -s https://getcomposer.org/installer | php --
-    php composer.phar create-project -sdev --repository-url="https://packages.zendframework.com" zendframework/skeleton-application path/to/install
-
-Alternately, clone the repository and manually invoke `composer` using the shipped
-`composer.phar`:
-
-    cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
-    php composer.phar self-update
-    php composer.phar install
-
-(The `self-update` directive is to ensure you have an up-to-date `composer.phar`
-available.)
-
-Another alternative for downloading the project is to grab it via `curl`, and
-then pass it to `tar`:
-
-    cd my/project/dir
-    curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
-
-You would then invoke `composer` to install dependencies per the previous
-example.
-
-Using Git submodules
---------------------
-Alternatively, you can install using native git submodules:
-
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
+Post-Installation
+------------------
+* Create `doctrine.local.php`: `cp autoload/doctrine.local{.php.dist,.php}`
+* Edit `doctrine.local.php` and set your params of conexion to database in $dbParams array.
+* Create your entities and place it in the folder `module\Application\src\Application\Entity`,  this entities must belong  at namespace `\Application\Entity`
+* **Optional:** Activate `ZendDeveloperTools`: 
+```sh
+$ cp config/autoload/zenddevelopertools.local{.php.dist,.php}
+```
+    Activate the module ZendDeveloperTools in the section 'modules' of file `config\application.config`, uncoment the line //'ZendDeveloperTools'.
 
 Web Server Setup
 ----------------
@@ -66,9 +48,9 @@ project and you should be ready to go! It should look something like below:
 
     <VirtualHost *:80>
         ServerName zf2-tutorial.localhost
-        DocumentRoot /path/to/zf2-tutorial/public
+        DocumentRoot /path/to/zf2-app/public
         SetEnv APPLICATION_ENV "development"
-        <Directory /path/to/zf2-tutorial/public>
+        <Directory /path/to/zf2-app/public>
             DirectoryIndex index.php
             AllowOverride All
             Order allow,deny

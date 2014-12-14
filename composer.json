@@ -1,14 +1,30 @@
 {
-    "name": "zendframework/skeleton-application",
-    "description": "Skeleton Application for ZF2",
+    "name": "wyanez/zf2-doctrine-skeleton",
+    "description": "Skeleton Application for ZF2 and Doctrine",
     "license": "BSD-3-Clause",
     "keywords": [
         "framework",
-        "zf2"
+        "zf2",
+        "doctrine",
+        "skeleton"
     ],
-    "homepage": "http://framework.zend.com/",
+    "homepage": "http://github.com/wyanez",
+    "authors": [
+        {
+            "name": "William Yanez",
+            "email": "wyanez@gmail.com",
+            "homepage": "http://about.me/wryanez",
+            "role": "Developer"
+        }
+    ],
     "require": {
-        "php": ">=5.3.3",
-        "zendframework/zendframework": "2.3.*"
+        "php": ">=5.4",
+        "zendframework/zendframework": "2.3.*",
+        "wyanez/zf2-doctrine-base": "dev-master"
+    },
+    "require-dev": {
+        "zendframework/zftool": "dev-master",
+        "firephp/firephp-core": "dev-master"
     }
 }
+
